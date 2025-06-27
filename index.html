@@ -1,41 +1,71 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Test Botpress Chatbot</title>
-    <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
-    <style>
-      html, body {
-        margin: 0;
-        height: 100%;
-      }
-      #webchat {
-        width: 100%;
-        height: 100%;
-      }
-      #webchat .bpWebchat {
-        position: unset;
-        width: 100%;
-        height: 100%;
-      }
-      #webchat .bpFab {
-        display: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="webchat"></div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Chatbot</title>
 
-    <script>
-      window.botpress.on("webchat:ready", () => {
-        window.botpress.open();
-      });
+  <!-- Botpress Webchat Script -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.0/shareable.html?configUrl=https://files.bpcontent.cloud/2025/06/26/10/20250626103031-ZCPEMFGC.json"></script>
 
-      window.botpress.init({
-        botId: "8c871292-374d-42b9-af44-dcc25211a4b6",
-        clientId: "f99f6593-b3ed-4668-9880-6fb8b4921a3e",
-        selector: "#webchat"
-      });
-    </script>
-  </body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #webchat {
+      width: 100%;
+      max-width: 500px;
+      height: 600px;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    #webchat .bpWebchat {
+      position: unset;
+      width: 100%;
+      height: 100%;
+    }
+
+    #webchat .bpFab {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to My Chatbot</h1>
+  <div id="webchat"></div>
+
+  <script>
+    window.botpress.on("webchat:ready", () => {
+      window.botpress.open();
+    });
+
+    window.botpress.init({
+      botId: "8c871292-374d-42b9-af44-dcc25211a4b6",
+      clientId: "f99f6593-b3ed-4668-9880-6fb8b4921a3e",
+      selector: "#webchat",
+      configuration: {
+        // Optional: customize further if needed
+      }
+    });
+  </script>
+
+</body>
 </html>
