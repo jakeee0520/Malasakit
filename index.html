@@ -3,23 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Embedded Botpress Chatbot</title>
-
-  <!-- Botpress Webchat Script -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+  <title>Your Chatbot</title>
 
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: #101010;
+      color: white;
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      color: white;
     }
 
     h1 {
@@ -49,16 +46,48 @@
 </head>
 <body>
 
-  <h1>Malasakit ChatBot</h1>
-  <div id="webchat"></div>
+  <h1>Welcome to My Chatbot</h1>
+  <div id="webchat">Loading chatbot...</div>
 
-  <!-- Botpress Embed Code with External Config -->
-  <script>
-    window.botpressWebChat.init({
-      configUrl: "https://cdn.botpress.cloud/webchat/v3.0/shareable.html?configUrl=https://files.bpcontent.cloud/2025/06/26/10/20250626103031-ZCPEMFGC.json,
-      selector: "#webchat"
-    });
-  </script>
+
+<!-- In your <head> tag -->
+<script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+<style>
+  #webchat .bpWebchat {
+    position: unset;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  #webchat .bpFab {
+    display: none;
+  }
+</style>
+
+<!-- Put this on your page BEFORE the script below -->
+<div id="webchat" style="width: 500px; height: 500px;"></div>
+
+<!-- In your <body> tag -->
+<script>
+  window.botpress.on("webchat:ready", () => {
+    window.botpress.open();
+  });
+  window.botpress.init({
+  "botId": "8c871292-374d-42b9-af44-dcc25211a4b6",
+  "configuration": {
+    "website": {},
+    "email": {},
+    "phone": {},
+    "termsOfService": {},
+    "privacyPolicy": {}
+  },
+  "clientId": "f99f6593-b3ed-4668-9880-6fb8b4921a3e",
+  "selector": "#webchat"
+});
+</script>
+
 
 </body>
 </html>
